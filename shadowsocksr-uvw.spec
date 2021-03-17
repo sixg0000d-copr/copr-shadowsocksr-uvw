@@ -36,12 +36,14 @@ A minimal dependency shadowsocksr implementation.
 
 
 %build
-%cmake -DSSR_UVW_WITH_QT=0 \
-       -DUSE_SYSTEM_SODIUM=ON \
-       -DUSE_SYSTEM_LIBUV=ON \
-       -DSTATIC_LINK_LIBUV=OFF \
-       -DSTATIC_LINK_SODIUM=OFF \
-       -DCMAKE_BUILD_TYPE=Release
+%cmake \
+%{?!with_check: -DBUILD_TESTING=OFF} \
+                -DSSR_UVW_WITH_QT=0 \
+                -DUSE_SYSTEM_SODIUM=ON \
+                -DUSE_SYSTEM_LIBUV=ON \
+                -DSTATIC_LINK_LIBUV=OFF \
+                -DSTATIC_LINK_SODIUM=OFF \
+                -DCMAKE_BUILD_TYPE=Release
 %cmake_build
 
 
