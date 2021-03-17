@@ -1,5 +1,5 @@
 # You shuold enable-network to finish the check
-%bcond_without check
+%bcond_with       check
 
 %global forgeurl  https://github.com/Qv2ray/shadowsocksr-uvw/
 %global branch    master
